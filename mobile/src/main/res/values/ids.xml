@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tutTitle" type="id">TutorialTitle</item>
+    <item name="morse" type="id">MorseDescr</item>
+    <item name="dots" type="id">dashes</item>
+</resources>

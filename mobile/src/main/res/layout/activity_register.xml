@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="87dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/registerButton"
+        android:layout_marginTop="43dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="PHL Morse"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordRepeatField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@android:color/transparent"
+        android:text="Register" />
+
+    <EditText
+        android:id="@+id/usernameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="email" />
+
+    <EditText
+        android:id="@+id/passwordField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/usernameField"
+        android:layout_below="@+id/usernameField"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password" />
+
+    <EditText
+        android:id="@+id/passwordRepeatField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/passwordField"
+        android:layout_below="@+id/passwordField"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/usernameField"
+        android:layout_alignStart="@+id/usernameField"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="username" />
+</RelativeLayout>

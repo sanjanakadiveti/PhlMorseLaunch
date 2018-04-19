@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="87dp"
+        android:layout_height="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp"
+        android:text="Your Lessons"
+        android:textColor="@android:color/background_dark"
+        android:textSize="30dp" />
+
+    <Button
+        android:id="@+id/NextQuizButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/MemRefreshButton"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="29dp"
+        android:background="@android:color/transparent"
+        android:text="Next Lesson and Quiz"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/MemRefreshButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/NextQuizButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/transparent"
+        android:text="Refresh Memory Quiz"
+        android:textAllCaps="false"/>
+
+</RelativeLayout>

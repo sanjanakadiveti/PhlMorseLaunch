@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PhlMorse</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashes">To type a dash we will use a long tap of a touch button</string>
+    <string name="dots">To type a dot we will use a short tap of a touch button</string>
+    <string name="morse">Morse Code is a method of text transmission as a series of dots and dashes\nTo type a dot we will use a short tap of a touch button\nTo type a dot we will use a short tap of a touch button</string>
+</resources>

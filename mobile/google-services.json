@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "473482438157",
+    "firebase_url": "https://phlmorse.firebaseio.com",
+    "project_id": "phlmorse",
+    "storage_bucket": "phlmorse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473482438157:android:d0befe9a5cab9e5b",
+        "android_client_info": {
+          "package_name": "phlmorse.gatech.edu.phlmorse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473482438157-fmlu6va3vbh4eoiepdt384k4m25tbhvd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "phlmorse.gatech.edu.phlmorse",
+            "certificate_hash": "04ba61588a455bcaa9ecf4cf984f43752eaa493d"
+          }
+        },
+        {
+          "client_id": "473482438157-ja34d2agqjcm567c85brv5kqs9m25fdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaFDEDE4zAMVJxMq1PW6oNBbDvYn8LO1w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473482438157-ja34d2agqjcm567c85brv5kqs9m25fdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
