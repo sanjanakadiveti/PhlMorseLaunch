@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import phlmorse.gatech.edu.phlmorse.R;
@@ -16,13 +17,13 @@ import phlmorse.gatech.edu.phlmorse.R;
 
 public class TutorialActivity extends AppCompatActivity {
     String username;
-    Button next;
+    ImageButton next;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
         username = getIntent().getStringExtra("Username");
-        next = findViewById(R.id.nextbutton);
+        next = findViewById(R.id.nextButton);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

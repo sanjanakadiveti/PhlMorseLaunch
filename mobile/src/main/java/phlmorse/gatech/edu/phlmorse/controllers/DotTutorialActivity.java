@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import phlmorse.gatech.edu.phlmorse.R;
 public class DotTutorialActivity extends AppCompatActivity {
     String username;
     TextView tv;
-    Button buttonCodeInput;
+    ImageButton buttonCodeInput;
     private long morseCodeInputTime;
     Button next;
     @Override
@@ -29,7 +30,7 @@ public class DotTutorialActivity extends AppCompatActivity {
         next = findViewById(R.id.nextDotbutton);
         username = getIntent().getStringExtra("Username");
 
-        buttonCodeInput = (Button) findViewById(R.id.button3);
+        buttonCodeInput = (ImageButton) findViewById(R.id.button3);
         buttonCodeInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

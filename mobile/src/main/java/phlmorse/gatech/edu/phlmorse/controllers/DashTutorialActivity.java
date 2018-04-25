@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import phlmorse.gatech.edu.phlmorse.R;
 public class DashTutorialActivity extends AppCompatActivity {
     String username;
     TextView tv;
-    Button buttonCodeInput;
+    ImageButton buttonCodeInput;
     private long morseCodeInputTime;
     Button next;
     @Override
@@ -29,8 +30,7 @@ public class DashTutorialActivity extends AppCompatActivity {
         tv = findViewById(R.id.dotDashText);
         next = findViewById(R.id.nextDotbutton);
         username = getIntent().getStringExtra("Username");
-
-        buttonCodeInput = (Button) findViewById(R.id.button3);
+        buttonCodeInput = (ImageButton) findViewById(R.id.button3);
         buttonCodeInput.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -45,6 +45,7 @@ public class DashTutorialActivity extends AppCompatActivity {
                         (tv).append("-");
                     }
                 }
+
                 return false;
             }
         });

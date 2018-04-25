@@ -4,57 +4,63 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tutTitle"
-        android:layout_width="wrap_content"
+        android:id="@+id/morseText"
+        android:layout_width="308dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
-        android:text="Tutorial"
+        android:layout_marginTop="150dp"
+        android:lines="3"
+        android:text="@string/morse"
+        android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="30sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/nextbutton"
+    <TextView
+        android:id="@+id/dotsTutorial"
+        android:layout_width="307dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="244dp"
+        android:text="@string/dots"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dashesTutorial"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="143dp"
+        android:text="@string/dashes"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageButton
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:background="@android:color/transparent"
-        android:text="Next" />
+        android:layout_marginBottom="35dp"
+        android:background="#0000"
+        app:srcCompat="@drawable/next2" />
 
-    <TextView
-        android:id="@+id/morseText"
-        android:layout_width="180dp"
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tutTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp"
-        android:lines="3"
-        android:text="@string/morse"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
-
-    <TextView
-        android:id="@+id/dotsTutorial"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/morseText"
-        android:layout_centerVertical="true"
-        android:text="@string/dots"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
-
-    <TextView
-        android:id="@+id/dashesTutorial"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/dotsTutorial"
-        android:layout_below="@+id/dotsTutorial"
-        android:layout_marginTop="51dp"
-        android:text="@string/dashes"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="56dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/tut" />
 
 </RelativeLayout>

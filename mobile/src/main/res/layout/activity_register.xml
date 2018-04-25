@@ -6,33 +6,24 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="87dp"
-        android:layout_height="70dp"
+        android:layout_width="143dp"
+        android:layout_height="113dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/registerButton"
-        android:layout_marginTop="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
-        android:text="PHL Morse"
+        android:layout_marginTop="98dp"
+        android:fontFamily="@font/bevan"
+        android:text="Morse"
         android:textColor="@android:color/background_dark"
-        android:textSize="30dp" />
-
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordRepeatField"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
-        android:background="@android:color/transparent"
-        android:text="Register" />
+        android:textSize="45sp" />
 
     <EditText
         android:id="@+id/usernameField"
@@ -71,6 +62,18 @@
         android:layout_above="@+id/usernameField"
         android:layout_alignStart="@+id/usernameField"
         android:ems="10"
+        android:hint="username"
         android:inputType="textPersonName"
-        android:hint="username" />
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textColorLink="@color/colorPrimary" />
+
+    <ImageButton
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp"
+        android:background="#0000"
+        app:srcCompat="@drawable/register" />
 </RelativeLayout>

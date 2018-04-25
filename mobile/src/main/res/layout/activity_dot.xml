@@ -7,44 +7,26 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="71dp"
-        android:layout_height="57dp"
+        android:layout_width="100dp"
+        android:layout_height="77dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/instruction"
-        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
         app:srcCompat="@drawable/logo"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/dotDescription"
-        android:layout_alignEnd="@+id/instruction"
-        android:text="Dots"
-        android:textColor="@android:color/black"
-        android:textSize="37dp"
-        tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
         android:id="@+id/dotDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:text="Tap the button to enter dots." />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/dotDescription"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="133dp"
-        android:text="Button" />
+        android:layout_marginTop="146dp"
+        android:text="Tap the button to enter dots."
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/dotDashText"
@@ -53,8 +35,9 @@
         android:layout_below="@+id/dotDescription"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="55dp"
-        android:text="morse:"
-        android:textColor="@android:color/black" />
+        android:text="Morse:"
+        android:textColor="@android:color/black"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/nextDotbutton"
@@ -70,8 +53,30 @@
         android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/dotDescription"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Enter at least three dots." />
+        android:layout_marginTop="184dp"
+        android:text="Enter at least three dots."
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView3"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/dots" />
+
+    <ImageButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="165dp"
+        android:background="#0000"
+        app:srcCompat="@drawable/tap" />
 </RelativeLayout>

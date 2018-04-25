@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText emailfield;
     private EditText passwordfield;
     private EditText passwordRepeatField;
-    private Button registerButton;
+    private ImageButton registerButton;
     private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
