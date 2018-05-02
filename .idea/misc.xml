@@ -24,6 +24,7 @@
       </value>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
@@ -43,4 +44,9 @@
       </state>
     </states>
   </component>
+=======
+  <component name="ProjectRootManager">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+>>>>>>> Stashed changes
 </project>
