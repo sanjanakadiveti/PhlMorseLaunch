@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/5.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8f2b22900b77594721c33861d80410b2bc5cadf1">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.8.0.aar/39670a4aae5a918311c0a6659f3e0664/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d2af2ef4d987d753f2e8ee2d1480ab964d5c7273">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/8.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b27a7a34791cd90b536255baf816ab3559823ba7">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/561301b0d7b0b14df96e0fca7c1c7adb/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f97cf85b0fe70d37a705111dafa6b1b418ea1650">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/percent-26.1.0.aar/69865ed1e717762aee3edcff3e330d79/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c6f28bfbd0f56ac2ab6e8c57503b610b35d116c9">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/2.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="02ab3c842f30f7e0907ed422a1279d4426ec4203">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/20.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="cd1ac7bb8c5b8308671b34328fe141e7b3973d8d">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6d68fdcd3e0934af2aab4a0233bdbbe3/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b62fdc4cfef174c1e456014195c83fa7de7dc041">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/22.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="92d788b658c80b21f1c838b1003e0af6bd70a1c1">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/22.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/4.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="89cafc58e40b6c6bf4f30620e48a5499c30532c1">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/15.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="62c220f46f1871ec3e7f9e8993ec2f397540785e">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/15.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/13.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ee36df8c231af10afacbd79510db9ef3fee13a12">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/21.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="581f740328e8f80438d9af31a2abee6e64437508">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/14.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a05ca9ac41f6d413bb53bcfada619575ec52fc6f">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/6.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="216e70f86470e8cc70726985531993f028912b9e">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/modules-2/files-2.1/com.android.support/support-annotations/26.1.0/814258103cf26a15fcc26ecce35f5b7d24b73f8/support-annotations-26.1.0.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="0814258103cf26a15fcc26ecce35f5b7d24b73f8">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-26.1.0.aar/dc15ee6ca2d11b3fc9ebbddbf86a1b82/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b12cd9c87c3dfb012a911b6e38d2444ed0a65e1f">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/play-services-base-11.8.0.aar/aad45344e9dc73fb82517c3d5fc595a2/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="233d88c6f961d2a84758dfe27b7af61318190c7b">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/7.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d1253897d3456f7fda5fe06800dd9331af8e6792">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/23.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1daec1a24a913057311b77127ce1969c724767ed">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/23.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/85bc906c9fda109749a2b05cc8c36955/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/a9aac89a01b524c0ba6c50df733201be/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="233f60a165ae622c8b36731502ebbda0f65e1930">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/modules-2/files-2.1/android.arch.core/common/1.0.0/a2d487452376193fc8c103dd2b9bd5f2b1b44563/common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a2d487452376193fc8c103dd2b9bd5f2b1b44563">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/21.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/17.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f1eb52ab39a98c946ac6939b258f07962a4ce1b3">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/3.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5bd5f2d4450fcde97919bb0f8df4545785dd294a">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/11.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="760199ec4a6efde3dd6f74a2c5848f3f287eea7f">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/11.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/16.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e70bb91d0f2a6a210603265f464de009433b2818">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/16.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.8.0.aar/6e1ce6304f3af8128db687735a5dbbd7/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5ad3911825107d8dd4b017fdecebfd23c08048dd">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/9.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="057e41f3f752c8291b8dbe88815c7db5f328aabb">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/19.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="646a3ccb19c4c4a65234e723024eb156d8c95cc3">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/12.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e5ac050f56284370c5814839e3b63df777fadafc">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/play-services-wearable-11.8.0.aar/2a4e94159e96c145a6855db64f3aa3b9/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c86b9ff3ff60aa61ee5a9116c3c06a533ff324c9">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/5b1403bddcb73253f182c7a186710da4/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2442771a5590dd4eb4bce00c2e9dca9e22e4c963">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/13.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/25.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="445108ef35183b37885d5ca832eaff840c95d757">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/25.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/modules-2/files-2.1/android.arch.lifecycle/common/1.0.0/e414a4cb28434e25c4f6aa71426eb20cf4874ae9/common-1.0.0.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e414a4cb28434e25c4f6aa71426eb20cf4874ae9">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/20.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/ea14bff8a372e1f3a83e0ad75b3826ba/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="508f50705b4fde51a16259f29c854201a3044516">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/12.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/24.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2cce1edf674299569566f6961bca5352bd512ea7">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/24.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/10.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="75c87f1ff5e6e6f0e4a9a33629396f981770f721">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/wearable-2.2.0.aar/6775461eab40227cb25637cb09532978/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="180d2b0f1c41001724fe3bbdcbbcda42632a3bef">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/88c17e845797c00f34710189a9d3dc4d/jars/classes.jar"
+        jumboMode="false"
+        min-sdk-version="21"
+        optimize="true"
+        revision="26.0.2"
+        sha1="7efef32744ca4a436492d5cf28c08698cc2af256">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/wear/build/intermediates/transforms/preDex/release/10.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/26.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="aad1abcaf53411a19b3c538656771ab3797106a1">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/desugar/release/18.jar"
+        jumboMode="false"
+        min-sdk-version="23"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8894eaf3ad90c58cc8a1b32f447656194d559453">
+        <dex dex="/Users/zaeem/Dropbox/GT/Research/App/Morse/mobile/build/intermediates/transforms/preDex/release/18.jar" />
+    </item>
+
+</items>
