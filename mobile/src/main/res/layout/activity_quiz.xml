@@ -48,17 +48,6 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <Button
-        android:id="@+id/morse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="98dp"
-
-        android:text="tap"
-        android:textSize="20dp" />
-
-    <Button
         android:id="@+id/SubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,4 +58,14 @@
         android:background="@android:color/transparent"
         android:text="Submit"
         android:textSize="20dp" />
+
+    <ImageButton
+        android:id="@+id/morse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="111dp"
+        android:background="#0000"
+        app:srcCompat="@drawable/tap" />
 </RelativeLayout>
