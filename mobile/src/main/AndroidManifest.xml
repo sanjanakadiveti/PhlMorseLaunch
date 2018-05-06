@@ -77,6 +77,11 @@
                 <action android:name="android.intent.action.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".controllers.ResultsListActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT" />
+            </intent-filter>
+        </activity>
         <service
             android:name=".controllers.WatchListener"
             android:enabled="true"

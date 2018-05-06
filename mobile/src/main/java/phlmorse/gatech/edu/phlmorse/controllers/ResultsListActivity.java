@@ -31,14 +31,21 @@ public class ResultsListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_list);
         resultsList = findViewById(R.id.allresults);
-        resultsRef = FirebaseDatabase.getInstance().getReference().child(getIntent().getStringExtra("Username"))
-                .child("quizzes");
+        resultsRef = FirebaseDatabase.getInstance().getReference().child("users").child(getIntent().getStringExtra("Username"))
+                .child("quizzes").child("scores");
+        adapter = new ArrayAdapter<>(ResultsListActivity.this,
+                android.R.layout.simple_list_item_1, results);
+        getResults();
+        resultsList.setAdapter(adapter);
     }
     private void getResults() {
         resultsRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                //String s = dataSnapshot.
+                String str = dataSnapshot.getKey() + ": " + dataSnapshot.getValue();
+                results.add(str);
+                adapter.notifyDataSetChanged();
+                resultsList.setAdapter(adapter);
             }
 
             @Override

@@ -66,6 +66,6 @@ public class ResultsActivity extends AppCompatActivity {
         String username = getIntent().getStringExtra("Username");
         dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("correct").setValue(correctLetters);
         dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("incorrect").setValue(incorrectLetters);
-        dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("score").setValue(scoreView.getText());
+        dbRef.child(username).child("quizzes").child("scores").child(tested).setValue(scoreView.getText());
     }
 }

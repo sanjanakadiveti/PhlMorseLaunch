@@ -125,8 +125,8 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
                             .setTitle("Learning Hazard")
                             .setMessage("At this point in time, if you quit, you may not learn as much.");
                     AlertDialog alertDialog = adb.create();
-                    alertDialog.setTitle("Alert Dialog");
-                    alertDialog.setMessage("Welcome to dear user.");
+                    //alertDialog.setTitle("Alert Dialog");
+                    //alertDialog.setMessage("Welcome to dear user.");
                     adb.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {

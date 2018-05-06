@@ -1,10 +1,13 @@
 package phlmorse.gatech.edu.phlmorse.controllers;
 
+import android.app.Application;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +40,7 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
     Button nextQuizBtn;
     Button refreshMemBtn;
     Button relearn;
+    Button allResults;
     String username;
     long quizNumber;
     String toLearn;
@@ -58,22 +62,37 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
         nextQuizBtn = findViewById(R.id.NextQuizButton);
         refreshMemBtn = findViewById(R.id.MemRefreshButton);
         relearn = findViewById(R.id.quizlistbtn);
-
+        allResults = findViewById(R.id.viewresultsbtn);
         getToLearn();
 
         nextQuizBtn.setOnClickListener((view)-> {
-            Intent intent;
-            if (preTaken.equals("no")) {
-                intent = new Intent(ApplicationActivity.this, QuizActivity.class);
-                intent.putExtra("PrePost", "pre");
+            if (toLearn == null) {
+                AlertDialog.Builder adb = new AlertDialog.Builder(ApplicationActivity.this)
+                        .setTitle("No More New Lessons!")
+                        .setMessage("You have completed all your lessons. Go to re-learn a word to learn a specific word again.");
+                AlertDialog alertDialog = adb.create();
+                //alertDialog.setTitle("Alert Dialog");
+                //alertDialog.setMessage("Welcome to dear user.");
+                adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        alertDialog.cancel();
+                    }
+                });
+                adb.show();
             } else {
-                Log.d("hey",preTaken);
-                intent = new Intent(ApplicationActivity.this, LearningActivity.class);
+                Intent intent;
+                if (preTaken.equals("no")) {
+                    intent = new Intent(ApplicationActivity.this, QuizActivity.class);
+                    intent.putExtra("PrePost", "pre");
+                } else {
+                    intent = new Intent(ApplicationActivity.this, LearningActivity.class);
+                }
+                intent.putExtra("Username", username);
+                intent.putExtra("Quiz", "next");
+                startActivity(intent);
+                finish();
             }
-            intent.putExtra("Username", username);
-            intent.putExtra("Quiz", "next");
-            startActivity(intent);
-            finish();
         });
 
         refreshMemBtn.setOnClickListener((view) -> {
@@ -88,6 +107,11 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
             intent.putExtra("Username", username);
             startActivity(intent);
         });
+        allResults.setOnClickListener((view -> {
+            Intent intent = new Intent(ApplicationActivity.this, ResultsListActivity.class);
+            intent.putExtra("Username", username);
+            startActivity(intent);
+        }));
     }
 
     private void sendMessage(final String message) {
@@ -108,12 +132,6 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
                     });
         }
     }
-    public void initGoogleApiClient() {
-        googleApiClient = new GoogleApiClient.Builder(this)
-                .addApi(Wearable.API)
-                .build();
-        googleApiClient.connect();
-    }
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         sendMessage("starting");
@@ -129,8 +147,12 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.getKey().equals("completed")) {
                     quizNumber = (long) dataSnapshot.getValue();
-                    toLearn = User.getQuiz((int)quizNumber).getWord();
-                    checkPreTaken();
+                    if (quizNumber == 8) {
+                        toLearn = null;
+                    } else {
+                        toLearn = User.getQuiz((int) quizNumber).getWord();
+                        checkPreTaken();
+                    }
                 }
             }
 
