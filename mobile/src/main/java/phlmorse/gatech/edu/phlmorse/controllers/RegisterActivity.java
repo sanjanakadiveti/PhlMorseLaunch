@@ -1,5 +1,6 @@
 package phlmorse.gatech.edu.phlmorse.controllers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,14 +17,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.FileOutputStream;
+import java.util.UUID;
+
 import phlmorse.gatech.edu.phlmorse.R;
 import phlmorse.gatech.edu.phlmorse.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
     private EditText unameField;
-    private EditText emailfield;
-    private EditText passwordfield;
-    private EditText passwordRepeatField;
+    //private EditText emailfield;
+    //private EditText passwordfield;
+    //private EditText passwordRepeatField;
     private ImageButton registerButton;
     private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users");
     @Override
@@ -33,24 +37,40 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         unameField = findViewById(R.id.username);
-        emailfield = findViewById(R.id.usernameField);
-        passwordfield = findViewById(R.id.passwordField);
-        passwordRepeatField = findViewById(R.id.passwordRepeatField);
+        //emailfield = findViewById(R.id.usernameField);
+        //passwordfield = findViewById(R.id.passwordField);
+        //passwordRepeatField = findViewById(R.id.passwordRepeatField);
         registerButton = findViewById(R.id.registerButton);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String username = unameField.getText().toString();
-                String email = emailfield.getText().toString();
-                String password = passwordfield.getText().toString();
-                String passwordCheck = passwordRepeatField.getText().toString();
+                //String email = emailfield.getText().toString();
+                //String password = passwordfield.getText().toString();
+                //String passwordCheck = passwordRepeatField.getText().toString();
 
                 if (TextUtils.isEmpty(username)) {
                     Toast.makeText(getApplicationContext(), "Enter username!", Toast.LENGTH_SHORT).show();
                     return;
+                } else {
+                    String uuid = UUID.randomUUID().toString();
+                    String fileName = "UUID";
+                    FileOutputStream outputStream;
+                    try {
+                        outputStream = openFileOutput(fileName, Context.MODE_PRIVATE);
+                        outputStream.write(uuid.getBytes());
+                        outputStream.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    new User(username, uuid);
+                    Intent intent = new Intent(RegisterActivity.this, TutorialActivity.class);
+                    intent.putExtra("Username", username);
+                    startActivity(intent);
+                    finish();
                 }
-                if (TextUtils.isEmpty(email)) {
+                /*if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -86,7 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Passwords don't match!", Toast.LENGTH_SHORT).show();
                     return;
-                }
+                }*/
             }
         });
     }

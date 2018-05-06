@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -38,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
     String toTest;
     LinearLayout layout;
     Button submitBtn;
-    Button morse;
+    ImageButton morse;
     private long morseCodeInputTime;
     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users");
     @Override
@@ -88,7 +89,7 @@ public class QuizActivity extends AppCompatActivity {
 
             }
         });
-        morse = (Button) findViewById(R.id.morse);
+        morse = (ImageButton) findViewById(R.id.morse);
         morse.setOnTouchListener(new View.OnTouchListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
@@ -165,4 +166,3 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 }
-

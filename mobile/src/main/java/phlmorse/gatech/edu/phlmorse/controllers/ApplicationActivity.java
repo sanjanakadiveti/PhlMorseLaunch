@@ -33,17 +33,15 @@ import phlmorse.gatech.edu.phlmorse.model.User;
  * Created by sanjanakadiveti on 3/19/18.
  */
 
-public class ApplicationActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, TextToSpeech.OnInitListener{
+public class ApplicationActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
     Button nextQuizBtn;
     Button refreshMemBtn;
+    Button relearn;
     String username;
     long quizNumber;
     String toLearn;
-    Boolean qFound = false;
     String preTaken;
-    private static TextToSpeech myTTS;
-    //status check code
-    private int MY_DATA_CHECK_CODE = 0;
+
     private static GoogleApiClient googleApiClient;
     DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("users");
     // variables for communication
@@ -59,85 +57,23 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
         username = getIntent().getExtras().get("Username").toString();
         nextQuizBtn = findViewById(R.id.NextQuizButton);
         refreshMemBtn = findViewById(R.id.MemRefreshButton);
+        relearn = findViewById(R.id.quizlistbtn);
 
-        Intent checkTTSIntent = new Intent();
-        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
-        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
-        initGoogleApiClient();
+        getToLearn();
 
         nextQuizBtn.setOnClickListener((view)-> {
-            dbRef.child(username).addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    if (dataSnapshot.getKey().equals("completed")) {
-                        quizNumber = (long) dataSnapshot.getValue();
-                        toLearn = User.getQuiz((int)quizNumber).getWord();
-                        qFound = true;
-                    }
-                }
-
-
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-            if (qFound) {
-                dbRef.child(username).child("quizzes").child(toLearn).addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        if (dataSnapshot.getKey().equals("pre-taken")) {
-                            preTaken = dataSnapshot.getValue().toString();
-                            Intent intent;
-                            if (preTaken.equals("no")) {
-                                intent = new Intent(ApplicationActivity.this, QuizActivity.class);
-                                intent.putExtra("PrePost", "pre");
-                            } else {
-                                intent = new Intent(ApplicationActivity.this, LearningActivity.class);
-                            }
-                            intent.putExtra("Username", username);
-                            intent.putExtra("Quiz", "next");
-                            startActivity(intent);
-                            //finish();
-                        }
-                    }
-
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-                    }
-
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+            Intent intent;
+            if (preTaken.equals("no")) {
+                intent = new Intent(ApplicationActivity.this, QuizActivity.class);
+                intent.putExtra("PrePost", "pre");
+            } else {
+                Log.d("hey",preTaken);
+                intent = new Intent(ApplicationActivity.this, LearningActivity.class);
             }
+            intent.putExtra("Username", username);
+            intent.putExtra("Quiz", "next");
+            startActivity(intent);
+            finish();
         });
 
         refreshMemBtn.setOnClickListener((view) -> {
@@ -147,36 +83,13 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
             intent.putExtra("PrePost", "none");
             startActivity(intent);
         });
+        relearn.setOnClickListener((view) -> {
+            Intent intent = new Intent(ApplicationActivity.this, LessonListActivity.class);
+            intent.putExtra("Username", username);
+            startActivity(intent);
+        });
     }
-    //act on result of TTS data check
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == MY_DATA_CHECK_CODE) {
-            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
-                //the user has the necessary data - create the TTS
-                myTTS = new TextToSpeech(this, this);
-            }
-            else {
-                //no data - install it now
-                Intent installTTSIntent = new Intent();
-                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
-                startActivity(installTTSIntent);
-            }
-        }
-    }
-    //setup TTS
-    public void onInit(int initStatus) {
-        //check for successful instantiation
-        if (initStatus == TextToSpeech.SUCCESS) {
-            if(myTTS.isLanguageAvailable(Locale.US)==TextToSpeech.LANG_AVAILABLE)
-                myTTS.setLanguage(Locale.US);
-        }
-        else if (initStatus == TextToSpeech.ERROR) {
-            Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
-        }
-    }
-    public static void speakString(String speech) {
-        myTTS.speak(speech, TextToSpeech.QUEUE_ADD, null, "utter");
-    }
+
     private void sendMessage(final String message) {
         if(googleApiClient != null &&
                 googleApiClient.isConnected() &&
@@ -210,5 +123,67 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
     public void onConnectionSuspended(int i) {
 
     }
+    private void getToLearn() {
+        dbRef.child(username).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if (dataSnapshot.getKey().equals("completed")) {
+                    quizNumber = (long) dataSnapshot.getValue();
+                    toLearn = User.getQuiz((int)quizNumber).getWord();
+                    checkPreTaken();
+                }
+            }
 
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+    private void checkPreTaken() {
+        dbRef.child(username).child("quizzes").child(toLearn).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if (dataSnapshot.getKey().equals("pre-taken")) {
+                    preTaken = dataSnapshot.getValue().toString();
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

@@ -3,6 +3,7 @@ package phlmorse.gatech.edu.phlmorse.controllers;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -24,6 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
+import java.util.Locale;
+
 import phlmorse.gatech.edu.phlmorse.R;
 import phlmorse.gatech.edu.phlmorse.model.User;
 
@@ -31,11 +34,13 @@ import phlmorse.gatech.edu.phlmorse.model.User;
  * Created by sanjanakadiveti on 4/3/18.
  */
 
-public class LearningActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
+public class LearningActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, TextToSpeech.OnInitListener {
     Button cancel;
     Button done;
     String qtype;
     long quizNumber;
+    private static TextToSpeech myTTS;
+    private int MY_DATA_CHECK_CODE = 0;
     static String toLearn;
     static int timesLeft;
     String username;
@@ -49,26 +54,35 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learning);
 
+        myTTS = new TextToSpeech(this, this);
         timesLeft = 20;
         cancel = findViewById(R.id.cancelBtn);
         done = findViewById(R.id.doneBtn);
         qtype = getIntent().getStringExtra("Quiz");
         username = getIntent().getStringExtra("Username");
 
+        Intent checkTTSIntent = new Intent();
+        checkTTSIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
+        startActivityForResult(checkTTSIntent, MY_DATA_CHECK_CODE);
         dbRef.child(username).addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 if (dataSnapshot.getKey().equals("completed")) {
                     quizNumber = (long)dataSnapshot.getValue();
                     toLearn = "";
-                    if (qtype.equals("refresher")) {
-                        for (int i = 0; i < (int)quizNumber; i++) {
-                            toLearn += User.getQuiz(i).getWord();
+                    if (qtype.equals("relearn")) {
+                        toLearn = getIntent().getStringExtra("SelectedWord");
+                        currIndex = 0;
+                    } else {
+                        if (qtype.equals("refresher")) {
+                            for (int i = 0; i < (int) quizNumber; i++) {
+                                toLearn += User.getQuiz(i).getWord();
+                                currIndex = 0;
+                            }
+                        } else {
+                            toLearn = User.getQuiz((int) quizNumber).getWord();
                             currIndex = 0;
                         }
-                    } else {
-                        toLearn = User.getQuiz((int)quizNumber).getWord();
-                        currIndex = 0;
                     }
                 }
             }
@@ -97,6 +111,9 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
             @Override
             public void onClick(View view) {
                 sendMessage("cancel");
+                Intent intent = new Intent(LearningActivity.this, ApplicationActivity.class);
+                intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                startActivity(intent);
                 finish();
             }
         });
@@ -115,12 +132,16 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
                             sendMessage("cancel");
-                            Intent intent = new Intent(LearningActivity.this, QuizActivity.class);
-                            intent.putExtra("Username", getIntent().getStringExtra("Username"));
-                            intent.putExtra("Quiz", qtype);
-                            intent.putExtra("PrePost", "post");
-                            startActivity(intent);
-                            finish();
+                            if (qtype.equals("relearn")) {
+                                finish();
+                            } else {
+                                Intent intent = new Intent(LearningActivity.this, QuizActivity.class);
+                                intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                                intent.putExtra("Quiz", qtype);
+                                intent.putExtra("PrePost", "post");
+                                startActivity(intent);
+                                finish();
+                            }
                         }
                     });
                     adb.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -131,13 +152,18 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
                     });
                     adb.show();
                 } else {
-                    sendMessage("cancel");
-                    Intent intent = new Intent(LearningActivity.this, QuizActivity.class);
-                    intent.putExtra("Username", getIntent().getStringExtra("Username"));
-                    intent.putExtra("Quiz", qtype);
-                    intent.putExtra("PrePost", "post");
-                    startActivity(intent);
-                    finish();
+                    if (qtype.equals("relearn")) {
+                        sendMessage("cancel");
+                        finish();
+                    } else {
+                        sendMessage("cancel");
+                        Intent intent = new Intent(LearningActivity.this, QuizActivity.class);
+                        intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                        intent.putExtra("Quiz", qtype);
+                        intent.putExtra("PrePost", "post");
+                        startActivity(intent);
+                        finish();
+                    }
                 }
             }
         });
@@ -180,6 +206,10 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
     @Override
     public void onBackPressed() {
         sendMessage("cancel");
+        myTTS.shutdown();
+        Intent intent = new Intent(LearningActivity.this, ApplicationActivity.class);
+        intent.putExtra("Username", getIntent().getStringExtra("Username"));
+        startActivity(intent);
         finish();
     }
 
@@ -187,20 +217,51 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
         if(googleApiClient != null &&
                 googleApiClient.isConnected() &&
                 mNode != null) {
-            Log.d("cut2", message);
-            ApplicationActivity.speakString(message);
+            speakString(message);
             Wearable.MessageApi.sendMessage(googleApiClient, mNode.getId(),message, message.getBytes())
                     .setResultCallback(new ResultCallback<MessageApi.SendMessageResult>() {
                         @Override
                         public void onResult(@NonNull MessageApi.SendMessageResult sendMessageResult) {
                             if(sendMessageResult.getStatus().isSuccess()) {
-                                Log.d(message, message.getBytes().toString()+"sent");
+                                //Log.d(message, message.getBytes().toString()+"sent");
                             } else {
-                                Log.d(message, "Notsent");
+                                //Log.d(message, "Notsent");
                             }
                         }
                     });
         }
+    }
+    //act on result of TTS data check
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("debuggg", "getsHere");
+        if (requestCode == MY_DATA_CHECK_CODE) {
+            if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
+                //the user has the necessary data - create the TTS
+                //myTTS = new TextToSpeech(this, this);
+
+            }
+            else {
+                //no data - install it now
+                Intent installTTSIntent = new Intent();
+                installTTSIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
+                startActivity(installTTSIntent);
+            }
+        }
+    }
+    //setup TTS
+    public void onInit(int initStatus) {
+        Log.d("debuggg", "getsHereNext");
+        //check for successful instantiation
+        if (initStatus == TextToSpeech.SUCCESS) {
+            if(myTTS.isLanguageAvailable(Locale.US)==TextToSpeech.LANG_AVAILABLE)
+                myTTS.setLanguage(Locale.US);
+        }
+        else if (initStatus == TextToSpeech.ERROR) {
+            Toast.makeText(this, "Sorry! Text To Speech failed...", Toast.LENGTH_LONG).show();
+        }
+    }
+    public static void speakString(String speech) {
+        myTTS.speak(speech, TextToSpeech.QUEUE_ADD, null, "utter");
     }
     @Override
     public void onConnected(@Nullable Bundle bundle) {

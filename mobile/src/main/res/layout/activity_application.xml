@@ -45,4 +45,26 @@
         android:text="Refresh Memory Quiz"
         android:textAllCaps="false"/>
 
+    <Button
+        android:id="@+id/quizlistbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/MemRefreshButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/transparent"
+        android:text="Relearn a Word"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/viewresultsbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quizlistbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/transparent"
+        android:text="View All Results"
+        android:textAllCaps="false" />
+
 </RelativeLayout>

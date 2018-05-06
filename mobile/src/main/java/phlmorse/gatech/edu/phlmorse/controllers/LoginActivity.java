@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.FileInputStream;
+
 import phlmorse.gatech.edu.phlmorse.R;
 
 /**
@@ -24,81 +26,130 @@ import phlmorse.gatech.edu.phlmorse.R;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText unamefield;
-    private EditText passwordfield;
+    String username;
     private ImageButton login;
     private Button register;
+    String tempP;
     private DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        unamefield = findViewById(R.id.usernameField);
-        passwordfield = findViewById(R.id.passwordField);
-        login = findViewById(R.id.loginButton);
-        register = findViewById(R.id.registerButton);
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String uname = unamefield.getText().toString();
-                final String password = passwordfield.getText().toString();
-
-                if (TextUtils.isEmpty(uname)) {
-                    Toast.makeText(getApplicationContext(), "Enter username!", Toast.LENGTH_SHORT).show();
-                    return;
+        try {
+            FileInputStream fileInputStream = openFileInput("UUID");
+            int c;
+            tempP = "";
+            while ((c = fileInputStream.read()) != -1) {
+                tempP = tempP + Character.toString((char) c);
+            }
+            fileInputStream.close();
+            DatabaseReference dbRefUsers = dbRef.child("uuidToName");
+            dbRefUsers.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    if (dataSnapshot.getKey().equals(tempP)) {
+                        username = dataSnapshot.getValue().toString();
+                        Intent intent = new Intent(LoginActivity.this, ApplicationActivity.class);
+                        intent.putExtra("Username", username);
+                        startActivity(intent);
+                    }
                 }
 
-                if (TextUtils.isEmpty(password)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
                 }
-                DatabaseReference dbRefUsers = dbRef.child("users");
-                dbRefUsers.addChildEventListener(new ChildEventListener() {
-                    @Override
-                    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                        if (dataSnapshot.getKey().equals(uname)) {
-                            if (dataSnapshot.child("password").getValue().equals(password)) {
-                                Intent intent;
-                                if ((long)dataSnapshot.child("completed").getValue() == 0) {
-                                    intent = new Intent(LoginActivity.this, TutorialActivity.class);
-                                } else {
-                                    intent = new Intent(LoginActivity.this, ApplicationActivity.class);
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        } catch (Exception e) {
+            setContentView(R.layout.activity_login);
+            unamefield = findViewById(R.id.usernameField);
+            //passwordfield = findViewById(R.id.passwordField);
+            login = findViewById(R.id.loginButton);
+            register = findViewById(R.id.registerButton);
+
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String uname = unamefield.getText().toString();
+                    if (TextUtils.isEmpty(uname)) {
+                        Toast.makeText(getApplicationContext(), "Enter username!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    try {
+                        FileInputStream fileInputStream = openFileInput("UUID");
+                        int c;
+                        tempP = "";
+                        while ((c = fileInputStream.read()) != -1) {
+                            tempP = tempP + Character.toString((char) c);
+                        }
+
+                        fileInputStream.close();
+                    } catch (Exception e) {
+
+                    }
+                    DatabaseReference dbRefUsers = dbRef.child("users");
+                    dbRefUsers.addChildEventListener(new ChildEventListener() {
+                        @Override
+                        public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                            if (dataSnapshot.getKey().equals(uname)) {
+                                if (dataSnapshot.child("password").getValue().equals(tempP)) {
+                                    Intent intent;
+                                    if ((long) dataSnapshot.child("completed").getValue() == 0) {
+                                        intent = new Intent(LoginActivity.this, TutorialActivity.class);
+                                    } else {
+                                        intent = new Intent(LoginActivity.this, ApplicationActivity.class);
+                                    }
+                                    intent.putExtra("Username", uname);
+                                    startActivity(intent);
                                 }
-                                intent.putExtra("Username", uname);
-                                startActivity(intent);
                             }
                         }
-                    }
 
-                    @Override
-                    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                        @Override
+                        public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onChildRemoved(DataSnapshot dataSnapshot) {
+                        @Override
+                        public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                        @Override
+                        public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
-            }
-        });
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                intent.putExtra("Username", unamefield.getText().toString());
-                startActivity(intent);
-            }
-        });
+                        }
+                    });
+                }
+            });
+            register.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                    intent.putExtra("Username", unamefield.getText().toString());
+                    startActivity(intent);
+                }
+            });
+        }
     }
 }

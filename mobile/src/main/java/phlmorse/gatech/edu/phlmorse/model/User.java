@@ -23,24 +23,22 @@ public class User implements Parcelable {
     private static final ArrayList<Quiz> ALLQUIZZES = getAllQuizzes();
     private static Map<String, User> users = new HashMap<>();
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private static DatabaseReference dbRef = database.getReference().child("users");
+    private static DatabaseReference dbRef = database.getReference();
     private String username;
     private String email;
     private String password;
     private int completed;
 
-    public User(String u, String e, String p) {
+    public User(String u, String uuid) {
         username = u;
-        email = e;
-        password = p;
+        password = uuid;
         completed = 0;
 
-        dbRef.child(username).child("email").setValue(e);
-        dbRef.child(username).child("password").setValue(p);
-        dbRef.child(username).child("completed").setValue(completed);
-
+        dbRef.child("users").child(username).child("password").setValue(uuid);
+        dbRef.child("users").child(username).child("completed").setValue(completed);
+        dbRef.child("uuidToName").child(uuid).setValue(u);
         for (Quiz q : ALLQUIZZES) {
-            dbRef.child(username).child("quizzes").child(q.getWord()).child("pre-taken").setValue("no");
+            dbRef.child("users").child(username).child("quizzes").child(q.getWord()).child("pre-taken").setValue("no");
         }
     }
     public static Quiz getQuiz(int quizNumber) {
