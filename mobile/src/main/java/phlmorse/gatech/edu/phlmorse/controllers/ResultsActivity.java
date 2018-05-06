@@ -53,6 +53,9 @@ public class ResultsActivity extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(ResultsActivity.this, ApplicationActivity.class);
+                intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                startActivity(intent);
                 finish();
             }
         });
@@ -61,7 +64,8 @@ public class ResultsActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = database.getReference().child("users");
         String username = getIntent().getStringExtra("Username");
-        dbRef.child(username).child("postQuizzes").child(tested).child("correct").setValue(correctLetters);
-        dbRef.child(username).child("postQuizzes").child(tested).child("incorrect").setValue(incorrectLetters);
+        dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("correct").setValue(correctLetters);
+        dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("incorrect").setValue(incorrectLetters);
+        dbRef.child(username).child("quizzes").child("postQuizzes").child(tested).child("score").setValue(scoreView.getText());
     }
 }
