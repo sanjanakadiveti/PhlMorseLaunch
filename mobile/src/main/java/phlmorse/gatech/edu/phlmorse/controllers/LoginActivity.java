@@ -76,7 +76,10 @@ public class LoginActivity extends AppCompatActivity {
             });
 
         } catch (Exception e) {
-            setContentView(R.layout.activity_login);
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+            finish();
+            /*setContentView(R.layout.activity_login);
             unamefield = findViewById(R.id.usernameField);
             //passwordfield = findViewById(R.id.passwordField);
             login = findViewById(R.id.loginButton);
@@ -149,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
                     intent.putExtra("Username", unamefield.getText().toString());
                     startActivity(intent);
                 }
-            });
+            });*/
         }
     }
 }

@@ -9,9 +9,9 @@
     <TextView
         android:id="@+id/textView14"
         android:layout_width="292dp"
-        android:layout_height="105dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/bevan"
         android:text="Each lesson is a new rythm."
         android:textAlignment="center"
@@ -21,10 +21,10 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="297dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="26dp"
+        android:layout_width="349dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/bevan"
         android:text="Each rythm is a new word in Morse Code"
         android:textAlignment="center"
@@ -34,10 +34,10 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="299dp"
+        android:layout_width="323dp"
         android:layout_height="152dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/bevan"
         android:text="Pretty soon you'll know the whole alphabet!"
         android:textAlignment="center"
@@ -46,12 +46,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ttdot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
-        android:layout_marginStart="127dp"
-        android:text="Feel It!"
+        android:layout_marginBottom="104dp"
+        android:layout_marginStart="64dp"
+        android:text="Feel A DOT!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ttdash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="20dp"
+        android:text="Feel A DASH!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/tt4finish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:text="Finish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ttdot" />
 </android.support.constraint.ConstraintLayout>

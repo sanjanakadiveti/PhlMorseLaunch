@@ -120,6 +120,7 @@ public class QuizActivity extends AppCompatActivity {
                 intent.putExtra("Username", username);
                 intent.putExtra("Quiz", "next");
                 startActivity(intent);
+                finish();
             } else {
                 if (!(quizType.equals("refresher"))) {
                     dbRef.child(username).child("completed").setValue((int) quizNumber + 1);
@@ -138,6 +139,15 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(QuizActivity.this, ApplicationActivity.class);
+        intent.putExtra("Username", username);
+        startActivity(intent);
+        finish();
+    }
+
     private void populateLetters(String word) {
 
         for (int i = 0; i < word.length(); i++) {

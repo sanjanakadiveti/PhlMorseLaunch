@@ -47,7 +47,6 @@ public class WearMessageListenerService extends WearableListenerService implemen
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        Log.d("connected", "connected");
         resolveNode();
     }
     private void resolveNode() {
@@ -58,9 +57,7 @@ public class WearMessageListenerService extends WearableListenerService implemen
             for (Node n : nodes) {
                 mNode = n;
                 if(!message.equals("REFRESHER")) {
-                    Log.d("playing", "hi");
                     play(message, false);
-
                 }
             }
         } catch (ExecutionException e) {
@@ -74,74 +71,79 @@ public class WearMessageListenerService extends WearableListenerService implemen
 
     }
     public void sendMessage(String key) {
-        Log.d("lala", "sending");
         Wearable.getMessageClient(this).sendMessage(mNode.getId(), "WearListClicked"+ "--" + key, key.getBytes());
     }
     public long play(final String word, boolean repeat) {
-
-        MorseCode morseCode = new MorseCode(word);
         long[] pattern;
-        if(repeat) {
-            // Vibration times for x minutes...
-            pattern = morseCode.getVibrationPatternTimesForXMinutes(REPETITION_MINUTES);
+        if (word.equals("tutorialDot")) {
+            mVibrator.vibrate(250);
+            return 0;
+        } else if (word.equals("tutorialDash")) {
+            mVibrator.vibrate(750);
+            return 0;
         } else {
-            // Vibration time for one sequence
-            pattern = morseCode.getVibrationPatternTimes();
-        }
-        mVibrator.vibrate(pattern, -1);
-        //sendMessage(word);
-
-        timer = new Timer();
-        //tTask = new TimerTask() {
-            //public void run() {
-               // sendMessage(word.substring(0,1));
-           // }
-        //};
-       // timer.schedule(tTask, 1000);
-        // Create future changes and speak during each change
-        long delay = 1000;
-        long[][] vibration_times = morseCode.getVibrationTime();
-
-        if(repeat) {
-            int i = 0;
-            while (delay <= REPETITION_MINUTES * 60 * 1000) {
-                for (int j = 0; j < vibration_times[i % word.length()].length; j++) {
-                    Log.d("vibrating", String.valueOf(vibration_times[i % word.length()][j]));
-                    delay += vibration_times[i % word.length()][j];
-                    delay += 500;
-                }
-                delay += 1000;
-                if ((i + 1) % word.length() == 0) {
-                    delay += 3500;
-                }
-                final int index = (i + 1) % word.length();
-                tTask = new TimerTask() {
-                    public void run() {
-                        sendMessage(word.substring(index, index + 1));
-                    }
-                };
-                timer.schedule(tTask, delay - 1000);
-                i++;
+            MorseCode morseCode = new MorseCode(word);
+            if (repeat) {
+                // Vibration times for x minutes...
+                pattern = morseCode.getVibrationPatternTimesForXMinutes(REPETITION_MINUTES);
+            } else {
+                // Vibration time for one sequence
+                pattern = morseCode.getVibrationPatternTimes();
             }
-        } else {
-            for(int i = 0; i < vibration_times.length; i++) {
-                for (int j = 0; j < vibration_times[i].length; j++) {
-                    delay += vibration_times[i][j];
-                    delay += 500;
-                    Log.d("length", String.valueOf(vibration_times.length));
-                    Log.d("vibrating", String.valueOf(vibration_times[i][j]));
-                }
-                delay += 1000;
-                if (i + 1 == 0) {
-                    delay += 1000;
-                }
-                tTask = new TimerTask() {
-                    public void run() {
-                        Log.d("reaching this", word);
-                        sendMessage(word);
+            mVibrator.vibrate(pattern, -1);
+            //sendMessage(word);
+
+            timer = new Timer();
+            //tTask = new TimerTask() {
+            //public void run() {
+            // sendMessage(word.substring(0,1));
+            // }
+            //};
+            // timer.schedule(tTask, 1000);
+            // Create future changes and speak during each change
+            long delay = 1000;
+            long[][] vibration_times = morseCode.getVibrationTime();
+
+            if (repeat) {
+                int i = 0;
+                while (delay <= REPETITION_MINUTES * 60 * 1000) {
+                    for (int j = 0; j < vibration_times[i % word.length()].length; j++) {
+                        Log.d("vibrating", String.valueOf(vibration_times[i % word.length()][j]));
+                        delay += vibration_times[i % word.length()][j];
+                        delay += 500;
                     }
-                };
-                timer.schedule(tTask, delay - 1000);
+                    delay += 1000;
+                    if ((i + 1) % word.length() == 0) {
+                        delay += 3500;
+                    }
+                    final int index = (i + 1) % word.length();
+                    tTask = new TimerTask() {
+                        public void run() {
+                            sendMessage(word.substring(index, index + 1));
+                        }
+                    };
+                    timer.schedule(tTask, delay - 1000);
+                    i++;
+                }
+            } else {
+                for (int i = 0; i < vibration_times.length; i++) {
+                    for (int j = 0; j < vibration_times[i].length; j++) {
+                        delay += vibration_times[i][j];
+                        delay += 500;
+                        Log.d("length", String.valueOf(vibration_times.length));
+                        Log.d("vibrating", String.valueOf(vibration_times[i][j]));
+                    }
+                    delay += 1000;
+                    if (i + 1 == 0) {
+                        delay += 1000;
+                    }
+                    tTask = new TimerTask() {
+                        public void run() {
+                            Log.d("reaching this", word);
+                            sendMessage(word);
+                        }
+                    };
+                    timer.schedule(tTask, delay - 1000);
                 /*if(i != vibration_times.length - 1) {
                     final int index = (i + 1);
                     tTask = new TimerTask() {
@@ -152,8 +154,9 @@ public class WearMessageListenerService extends WearableListenerService implemen
                     };
                     timer.schedule(tTask, delay - 1000);
                 }*/
+                }
             }
+            return delay;
         }
-        return delay;
     }
 }

@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/bevan"
         android:text="How?"
         android:textColor="#000000"
@@ -37,7 +37,7 @@
         android:layout_width="281dp"
         android:layout_height="126dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/bevan"
         android:text="PHL uses vibration taps to teach you while you are distracted with everyday life"
         android:textAlignment="center"
@@ -45,12 +45,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-    <ImageView
-        android:id="@+id/imageView10"
+    <Button
+        android:id="@+id/ttnext3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="164dp"
+        android:background="@android:color/transparent"
+        android:text="Next"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:srcCompat="@drawable/xcr" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
 </android.support.constraint.ConstraintLayout>

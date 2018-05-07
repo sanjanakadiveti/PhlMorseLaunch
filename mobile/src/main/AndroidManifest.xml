@@ -66,6 +66,33 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".controllers.TutorialTwoActivity"
+            android:noHistory="true">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.DEFAULT"
+                    android:noHistory="true" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controllers.TutorialThreeActivity"
+            android:noHistory="true">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.DEFAULT"
+                    android:noHistory="true" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".controllers.TutorialFourActivity"
+            android:noHistory="true">
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.DEFAULT"
+                    android:noHistory="true" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".controllers.DashTutorialActivity"
             android:noHistory="true">
             <intent-filter>

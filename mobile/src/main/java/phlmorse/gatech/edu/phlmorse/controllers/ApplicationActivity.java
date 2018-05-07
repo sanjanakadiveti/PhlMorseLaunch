@@ -101,11 +101,13 @@ public class ApplicationActivity extends AppCompatActivity implements GoogleApiC
             intent.putExtra("Quiz", "refresher");
             intent.putExtra("PrePost", "none");
             startActivity(intent);
+            finish();
         });
         relearn.setOnClickListener((view) -> {
             Intent intent = new Intent(ApplicationActivity.this, LessonListActivity.class);
             intent.putExtra("Username", username);
             startActivity(intent);
+            finish();
         });
         allResults.setOnClickListener((view -> {
             Intent intent = new Intent(ApplicationActivity.this, ResultsListActivity.class);

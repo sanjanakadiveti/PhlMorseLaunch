@@ -53,7 +53,7 @@ public class DashTutorialActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (tv.getText().toString().contains("---")) {
-                    Intent intent = new Intent(DashTutorialActivity.this, ApplicationActivity.class);
+                    Intent intent = new Intent(DashTutorialActivity.this, TutorialTwoActivity.class);
                     intent.putExtra("Username", username);
                     startActivity(intent);
                 } else {

@@ -54,6 +54,12 @@ public class LessonListActivity extends AppCompatActivity{
             }
         });
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(LessonListActivity.this, ApplicationActivity.class);
+        intent.putExtra("Username", getIntent().getStringExtra("Username"));
+        startActivity(intent);
+        finish();
+    }
     private void showLessons() {
         lessonRef.addChildEventListener(new ChildEventListener() {
             @Override

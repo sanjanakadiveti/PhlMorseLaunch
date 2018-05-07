@@ -133,6 +133,9 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
                             Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
                             sendMessage("cancel");
                             if (qtype.equals("relearn")) {
+                                Intent intent = new Intent(LearningActivity.this, ApplicationActivity.class);
+                                intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                                startActivity(intent);
                                 finish();
                             } else {
                                 Intent intent = new Intent(LearningActivity.this, QuizActivity.class);
@@ -154,6 +157,9 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
                 } else {
                     if (qtype.equals("relearn")) {
                         sendMessage("cancel");
+                        Intent intent = new Intent(LearningActivity.this, ApplicationActivity.class);
+                        intent.putExtra("Username", getIntent().getStringExtra("Username"));
+                        startActivity(intent);
                         finish();
                     } else {
                         sendMessage("cancel");
@@ -250,7 +256,6 @@ public class LearningActivity extends AppCompatActivity implements GoogleApiClie
     }
     //setup TTS
     public void onInit(int initStatus) {
-        Log.d("debuggg", "getsHereNext");
         //check for successful instantiation
         if (initStatus == TextToSpeech.SUCCESS) {
             if(myTTS.isLanguageAvailable(Locale.US)==TextToSpeech.LANG_AVAILABLE)
