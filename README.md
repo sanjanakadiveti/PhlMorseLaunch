@@ -5,7 +5,7 @@ This is a concept researched by Georgia Tech PhD student, Caitlyn Seim, someone 
 
 # So what is PHL Morse?
 PHL Morse is an Android app that uses Passive Haptic Learning to teach you the Morse Code of every letter of the alphabet.
-This app was developed by myself, and its UI was designed by my fellow student, Zaeem Adamjee, under the research and guidance of Caitlyn Seim.
+This app was developed by myself, and its UI was designed by my fellow student, Zaeem Adamjee - we worked under the research and guidance of Caitlyn Seim.
 It will soon be launched by Caitlyn and Professor Thad Starner on the Android Play Store.
 
 # How is it used?
