@@ -14,4 +14,4 @@ Connect your phone to your watch. Download the app (link will be uploaded here u
 You will need to listen (using headphones if you are outdoors, or without if you are on your own) to each letter as it is spoken out loud, after which your watch will vibrate its Morse Code.
 The learning happens in words; each word is vibrated 20 times, but you may move on earlier if you feel you are ready to do so. Each lesson ends with a quiz to test your learning rate.
 Soon you'll notice that Passive Learning really works!
-You may also choose to relearn a certain word, or check your learning rate by taking a quiz of all letters learned so far.
+You may also choose to relearn a certain word, or check your overall learning rate by taking a quiz of all letters learned so far.
